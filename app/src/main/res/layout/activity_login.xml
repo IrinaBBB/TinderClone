@@ -6,4 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".activities.LoginActivity">
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/startup_logo_width"
+        android:layout_height="@dimen/startup_logo_height"
+        android:layout_marginTop="@dimen/startup_logo_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tinder_clone_logo"
+        android:contentDescription="@string/tinder_clone_logo_description" />
+
+    <EditText
+        android:id="@+id/email_edit_text"
+        android:layout_width="@dimen/standard_width"
+        android:layout_height="@dimen/standard_height"
+        android:layout_marginTop="32dp"
+        android:autofillHints="true"
+        android:hint="@string/hint_email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/logo"
+        app:layout_constraintStart_toStartOf="@+id/logo"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <EditText
+        android:id="@+id/password_edit_text"
+        android:layout_width="@dimen/standard_width"
+        android:layout_height="@dimen/standard_height"
+        android:layout_marginTop="16dp"
+        android:hint="@string/hint_password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/email_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/email_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/email_edit_text"
+        android:autofillHints="true" />
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="@dimen/standard_width"
+        android:layout_height="@dimen/standard_height"
+        style="@style/StandardButton"
+        android:layout_marginTop="16dp"
+        android:text="@string/startup_button_login"
+        app:layout_constraintEnd_toEndOf="@+id/password_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/password_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/password_edit_text" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

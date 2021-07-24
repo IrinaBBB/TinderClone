@@ -15,14 +15,15 @@ class StartupActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        // binding.login.setOnClickListener(onLogin(this))
+        binding.login.setOnClickListener { onLogin() }
+        binding.signup.setOnClickListener { onSignup() }
     }
 
-    fun onLogin(v: View) {
-
+    private fun onLogin() {
+        startActivity(LoginActivity.newIntent(this))
     }
 
-    fun onSignup(v: View) {
-
+    private fun onSignup() {
+        startActivity(SignupActivity.newIntent(this))
     }
 }

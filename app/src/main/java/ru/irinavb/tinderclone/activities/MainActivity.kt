@@ -1,5 +1,7 @@
 package ru.irinavb.tinderclone.activities
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
@@ -64,5 +66,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "LIST"
+        fun newIntent(context: Context?) = Intent(context, MainActivity::class.java)
     }
 }

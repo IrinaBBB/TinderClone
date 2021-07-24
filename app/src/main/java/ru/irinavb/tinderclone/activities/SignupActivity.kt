@@ -1,8 +1,11 @@
 package ru.irinavb.tinderclone.activities
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import ru.irinavb.tinderclone.R
+import ru.irinavb.tinderclone.databinding.ActivityMainBinding
 import ru.irinavb.tinderclone.databinding.ActivitySignupBinding
 
 class SignupActivity : AppCompatActivity() {
@@ -11,6 +14,18 @@ class SignupActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_signup)
+        binding =  ActivitySignupBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+        binding.signupButton.setOnClickListener{ onSignup() }
+    }
+
+    private fun onSignup() {
+        startActivity(MainActivity.newIntent(this))
+    }
+
+    companion object {
+        fun newIntent(context: Context?) = Intent(context, SignupActivity::class.java)
     }
 }

@@ -3,4 +3,6 @@
     <string name="tinder_clone_logo_description">Tinder Clone Logo</string>
     <string name="startup_button_login">Login</string>
     <string name="startup_button_signup">Sign up</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
 </resources>
