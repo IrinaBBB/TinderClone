@@ -6,4 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".activities.StartupActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/startup_logo_width"
+        android:layout_height="@dimen/startup_logo_height"
+        android:layout_marginTop="@dimen/startup_logo_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tinder_clone_logo"
+        android:contentDescription="@string/tinder_clone_logo_description" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_marginTop="50dp"
+        android:layout_width="@dimen/standard_width"
+        android:layout_height="@dimen/standard_height"
+        android:text="@string/startup_button_login"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_marginTop="20dp"
+        android:layout_width="@dimen/standard_width"
+        android:layout_height="@dimen/standard_height"
+        android:text="@string/startup_button_signup"
+        app:layout_constraintEnd_toEndOf="@+id/login"
+        app:layout_constraintStart_toStartOf="@+id/login"
+        app:layout_constraintTop_toBottomOf="@+id/login" />
 </androidx.constraintlayout.widget.ConstraintLayout>
