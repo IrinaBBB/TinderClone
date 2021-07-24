@@ -1,4 +1,4 @@
-package ru.irinavb.tinderclone
+package ru.irinavb.tinderclone.activities
 
 import android.os.Bundle
 import android.util.Log
@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.lorentzos.flingswipe.SwipeFlingAdapterView
+import ru.irinavb.tinderclone.R
 import ru.irinavb.tinderclone.databinding.ActivityMainBinding
 import java.util.*
 
@@ -13,6 +14,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
     private var al = ArrayList<String>()
     private var arrayAdapter: ArrayAdapter<String>? = null
     private var i = 0
