@@ -20,6 +20,7 @@
     <Button
         android:id="@+id/login"
         android:layout_marginTop="50dp"
+        style="@style/StandardButton"
         android:layout_width="@dimen/standard_width"
         android:layout_height="@dimen/standard_height"
         android:text="@string/startup_button_login"
@@ -30,6 +31,7 @@
     <Button
         android:id="@+id/signup"
         android:layout_marginTop="20dp"
+        style="@style/StandardButton"
         android:layout_width="@dimen/standard_width"
         android:layout_height="@dimen/standard_height"
         android:text="@string/startup_button_signup"
