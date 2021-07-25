@@ -28,40 +28,40 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        al = ArrayList<String>()
-        al.add("php")
-        al.add("c")
-        al.add("python")
-        al.add("java")
-
-        arrayAdapter = ArrayAdapter<String>(this, R.layout.item, R.id.helloText, al)
-
-        binding.frame.adapter = arrayAdapter
-        binding.frame.setFlingListener(object : SwipeFlingAdapterView.onFlingListener {
-            override fun removeFirstObjectInAdapter() {
-                Log.d(TAG, "removed object!")
-                al.removeAt(0)
-                arrayAdapter?.notifyDataSetChanged()
-            }
-
-            override fun onLeftCardExit(dataObject: Any) {
-                Toast.makeText(this@MainActivity, "Left!", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onRightCardExit(dataObject: Any) {
-                Toast.makeText(this@MainActivity, "Right!", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onAdapterAboutToEmpty(itemsInAdapter: Int) {
-                al.add("XML $i")
-                arrayAdapter?.notifyDataSetChanged()
-                Log.d(TAG, "notified")
-                i++
-            }
-
-            override fun onScroll(p0: Float) {
-            }
-        })
+//        al = ArrayList<String>()
+//        al.add("php")
+//        al.add("c")
+//        al.add("python")
+//        al.add("java")
+//
+//        arrayAdapter = ArrayAdapter<String>(this, R.layout.item, R.id.helloText, al)
+//
+//        binding.frame.adapter = arrayAdapter
+//        binding.frame.setFlingListener(object : SwipeFlingAdapterView.onFlingListener {
+//            override fun removeFirstObjectInAdapter() {
+//                Log.d(TAG, "removed object!")
+//                al.removeAt(0)
+//                arrayAdapter?.notifyDataSetChanged()
+//            }
+//
+//            override fun onLeftCardExit(dataObject: Any) {
+//                Toast.makeText(this@MainActivity, "Left!", Toast.LENGTH_SHORT).show()
+//            }
+//
+//            override fun onRightCardExit(dataObject: Any) {
+//                Toast.makeText(this@MainActivity, "Right!", Toast.LENGTH_SHORT).show()
+//            }
+//
+//            override fun onAdapterAboutToEmpty(itemsInAdapter: Int) {
+//                al.add("XML $i")
+//                arrayAdapter?.notifyDataSetChanged()
+//                Log.d(TAG, "notified")
+//                i++
+//            }
+//
+//            override fun onScroll(p0: Float) {
+//            }
+//        })
     }
 
     companion object {
