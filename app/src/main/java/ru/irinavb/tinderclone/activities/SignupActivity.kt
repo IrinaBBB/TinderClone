@@ -7,7 +7,11 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 import ru.irinavb.tinderclone.databinding.ActivitySignupBinding
+import ru.irinavb.tinderclone.util.DATA_USERS
+import ru.irinavb.tinderclone.util.User
 
 class SignupActivity : AppCompatActivity() {
 
@@ -21,6 +25,8 @@ class SignupActivity : AppCompatActivity() {
             finish()
         }
     }
+
+    private val firebaseDatabase = FirebaseDatabase.getInstance("https://tinderclone-bd785-default-rtdb.europe-west1.firebasedatabase.app").reference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,8 +60,14 @@ class SignupActivity : AppCompatActivity() {
                             this,
                             "Signup error ${task.exception?.localizedMessage}",
                             Toast.LENGTH_LONG
-                        )
-                            .show()
+                        ).show()
+                    } else {
+                        Log.d(TAG, "Hello")
+                        val userEmail = binding.emailEditText.text.toString()
+                        val userId = firebaseAuth.currentUser?.uid ?: ""
+                        val user = User(uid = userId, email = userEmail)
+                        Log.d(TAG, user.toString())
+                        firebaseDatabase.child(DATA_USERS).child(userId).setValue(user)
                     }
                 }
         }
