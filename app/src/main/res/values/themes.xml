@@ -16,7 +16,7 @@
 
     <style name="Theme.Design.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">#FF5864</item>
         <item name="colorPrimaryVariant">#FF5864</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->

@@ -3,11 +3,11 @@ package ru.irinavb.tinderclone.activities
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.lorentzos.flingswipe.SwipeFlingAdapterView
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import ru.irinavb.tinderclone.R
 import ru.irinavb.tinderclone.databinding.ActivityMainBinding
 import java.util.*
@@ -16,6 +16,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
     private var al = ArrayList<String>()
     private var arrayAdapter: ArrayAdapter<String>? = null
@@ -27,6 +28,12 @@ class MainActivity : AppCompatActivity() {
         binding =  ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.main_nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
+
+        binding.mainNavView.setupWithNavController(navController)
+
 
 //        al = ArrayList<String>()
 //        al.add("php")
@@ -62,6 +69,10 @@ class MainActivity : AppCompatActivity() {
 //            override fun onScroll(p0: Float) {
 //            }
 //        })
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
     companion object {
