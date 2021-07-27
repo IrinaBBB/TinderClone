@@ -10,4 +10,6 @@
     <string name="matches">matches</string>
     <string name="messages">messages</string>
     <string name="profile">profile</string>
+    <string name="wave">wave</string>
+    <string name="user_image">user image</string>
 </resources>

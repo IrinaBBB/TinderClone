@@ -1,4 +1,4 @@
-package ru.irinavb.tinderclone
+package ru.irinavb.tinderclone.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.lorentzos.flingswipe.SwipeFlingAdapterView
+import ru.irinavb.tinderclone.R
 import ru.irinavb.tinderclone.databinding.FragmentMatchesBinding
 import java.util.ArrayList
 
