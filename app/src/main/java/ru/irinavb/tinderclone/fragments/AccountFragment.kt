@@ -7,18 +7,23 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.DatabaseReference
 import ru.irinavb.tinderclone.R
+import ru.irinavb.tinderclone.interfaces.TinderCallback
 
 class AccountFragment : Fragment() {
 
+    private var callback: TinderCallback? = null
+
     private lateinit var userId: String
     private lateinit var userDatabase: DatabaseReference
+
+    fun setCallback(callback: TinderCallback) {
+        this.callback = callback
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        // (activity as MainActivity?)?.hello()
         return inflater.inflate(R.layout.fragment_account, container, false)
     }
 }

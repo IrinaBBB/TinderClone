@@ -11,15 +11,22 @@ import android.widget.Toast
 import com.lorentzos.flingswipe.SwipeFlingAdapterView
 import ru.irinavb.tinderclone.R
 import ru.irinavb.tinderclone.databinding.FragmentMatchesBinding
+import ru.irinavb.tinderclone.interfaces.TinderCallback
 import java.util.ArrayList
 
 class MatchesFragment : Fragment() {
+
+    private var callback: TinderCallback? = null
 
     private var matchesFragmentBinding: FragmentMatchesBinding? = null
 
     private var al = ArrayList<String>()
     private var arrayAdapter: ArrayAdapter<String>? = null
     private var i = 0
+
+    fun setCallback(callback: TinderCallback) {
+        this.callback = callback
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

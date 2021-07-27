@@ -70,9 +70,18 @@ class MainActivity : AppCompatActivity(), TinderCallback {
 
         binding.mainNavView.setOnItemSelectedListener {
             when(it.itemId) {
-                R.id.matchesFragment -> replaceFragment(matchesFragment)
-                R.id.messengerFragment -> replaceFragment(messengerFragment)
-                R.id.accountFragment -> replaceFragment(accountFragment)
+                R.id.matchesFragment -> {
+                    matchesFragment.setCallback(this@MainActivity)
+                    replaceFragment(matchesFragment)
+                }
+                R.id.messengerFragment -> {
+                    messengerFragment.setCallback(this@MainActivity)
+                    replaceFragment(messengerFragment)
+                }
+                R.id.accountFragment -> {
+                    accountFragment.setCallback(this@MainActivity)
+                    replaceFragment(accountFragment)
+                }
             }
             true
         }
@@ -85,7 +94,9 @@ class MainActivity : AppCompatActivity(), TinderCallback {
     }
 
     private fun initDatabase() {
-        userDatabase = FirebaseDatabase.getInstance().reference.child(DATA_USERS)
+        userDatabase = FirebaseDatabase
+            .getInstance("https://tinderclone-bd785-default-rtdb.europe-west1.firebasedatabase.app")
+            .reference.child(DATA_USERS)
     }
 
     companion object {
