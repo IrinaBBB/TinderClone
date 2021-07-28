@@ -241,7 +241,7 @@
                 app:layout_constraintStart_toStartOf="@+id/interested_in_constraint_layout"
                 app:layout_constraintTop_toBottomOf="@+id/interested_in_constraint_layout" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/sign_out_button"
                 style="@style/StandardButton"
                 android:layout_width="match_parent"
