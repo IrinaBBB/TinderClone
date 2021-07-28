@@ -139,7 +139,7 @@
                     android:layout_marginStart="47dp"
                     android:layout_marginLeft="47dp"
                     android:checkedButton="@+id/gender_female_radio_button"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="@+id/your_gender_label_text_view"
                     app:layout_constraintStart_toEndOf="@+id/your_gender_label_text_view"
                     app:layout_constraintTop_toTopOf="@+id/your_gender_label_text_view">
@@ -205,7 +205,7 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginLeft="32dp"
                     android:checkedButton="@+id/interested_in_male_radio_button"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="@+id/interested_in_label_text_view"
                     app:layout_constraintStart_toEndOf="@+id/interested_in_label_text_view"
                     app:layout_constraintTop_toTopOf="@+id/interested_in_label_text_view">

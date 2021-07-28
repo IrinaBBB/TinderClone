@@ -12,5 +12,6 @@
     <color name="yellow_light">#ffff5a</color>
     <color name="gray">#cccccc</color>
     <color name="tinder_main">#FF655B</color>
+<!--    Set this color in order to change input outline color -->
 <!--    <color name="mtrl_textinput_default_box_stroke_color">#eeeeee</color>-->
 </resources>
