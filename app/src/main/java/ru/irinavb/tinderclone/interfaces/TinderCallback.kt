@@ -10,6 +10,6 @@ interface TinderCallback  {
 
 }
 
-/* FOR GETTING SHA FOR FIREBASE 
+/* FOR GETTING SHA FOR FIREBASE
 *  keytool -list -v -keystore C:\Users\Bruker\.android\debug.keystore -alias androiddebugkey -storepass android -keypass android
 */

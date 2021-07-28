@@ -12,4 +12,14 @@
     <string name="profile">profile</string>
     <string name="wave">wave</string>
     <string name="user_image">user image</string>
+    <string name="name">Name</string>
+    <string name="age">age</string>
+    <string name="semicircle">semicircle</string>
+    <string name="male">male</string>
+    <string name="female">female</string>
+    <string name="your_gender">My gender</string>
+    <string name="icon_for_your_gender_field">icon for your gender field</string>
+    <string name="interested_in">Interested in</string>
+    <string name="apply">Apply</string>
+    <string name="sign_out">Sign out</string>
 </resources>
