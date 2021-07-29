@@ -4,42 +4,113 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#efefef"
     tools:context=".activities.LoginActivity">
 
-
-    <EditText
-        android:id="@+id/email_edit_text"
-        android:layout_width="@dimen/standard_width"
-        android:layout_height="@dimen/standard_height"
-        android:layout_marginTop="32dp"
-        android:autofillHints="true"
-        android:hint="@string/hint_email"
-        android:inputType="textEmailAddress"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/password_edit_text"
-        android:layout_width="@dimen/standard_width"
-        android:layout_height="@dimen/standard_height"
-        android:layout_marginTop="16dp"
-        android:hint="@string/hint_password"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/email_edit_text"
-        app:layout_constraintStart_toStartOf="@+id/email_edit_text"
-        app:layout_constraintTop_toBottomOf="@+id/email_edit_text"
-        android:autofillHints="true" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="@dimen/standard_width"
-        android:layout_height="@dimen/standard_height"
-        style="@style/StandardButton"
-        android:layout_marginTop="16dp"
-        android:text="@string/startup_button_login"
-        app:layout_constraintEnd_toEndOf="@+id/password_edit_text"
-        app:layout_constraintStart_toStartOf="@+id/password_edit_text"
-        app:layout_constraintTop_toBottomOf="@+id/password_edit_text" />
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="@dimen/startup_logo_width"
+                android:layout_height="@dimen/startup_logo_height"
+                android:layout_marginTop="50dp"
+                android:contentDescription="@string/tinder_clone_logo_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/tinder_clone_logo" />
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_text_input_layout"
+                style="@style/TinderOutlineTextBoxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:hint="@string/hint_email"
+                android:paddingHorizontal="16dp"
+                app:layout_constraintLeft_toLeftOf="@id/logo"
+                app:layout_constraintRight_toRightOf="@+id/logo"
+                app:layout_constraintTop_toBottomOf="@+id/logo"
+                app:startIconDrawable="@drawable/ic_email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_text_input_layout"
+                style="@style/TinderOutlineTextBoxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/hint_password"
+                android:paddingHorizontal="16dp"
+                app:layout_constraintLeft_toLeftOf="@id/email_text_input_layout"
+                app:layout_constraintRight_toRightOf="@+id/email_text_input_layout"
+                app:layout_constraintTop_toBottomOf="@+id/email_text_input_layout"
+                app:startIconDrawable="@drawable/ic_password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+<!--            <EditText-->
+<!--                android:id="@+id/email_edit_text"-->
+<!--                android:layout_width="@dimen/standard_width"-->
+<!--                android:layout_height="@dimen/standard_height"-->
+<!--                android:layout_marginTop="32dp"-->
+<!--                android:autofillHints="true"-->
+<!--                android:hint="@string/hint_email"-->
+<!--                android:inputType="textEmailAddress"-->
+<!--                app:layout_constraintEnd_toEndOf="@id/logo"-->
+<!--                app:layout_constraintStart_toStartOf="@id/logo"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/logo" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/password_edit_text"-->
+<!--                android:layout_width="@dimen/standard_width"-->
+<!--                android:layout_height="@dimen/standard_height"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:hint="@string/hint_password"-->
+<!--                android:inputType="textPassword"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/email_edit_text"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/email_edit_text"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/email_edit_text"-->
+<!--                android:autofillHints="true" />-->
+
+            <Button
+                android:id="@+id/login_button"
+                style="@style/StandardButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/standard_height"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/startup_button_login"
+                app:layout_constraintEnd_toEndOf="@+id/password_text_input_layout"
+                app:layout_constraintStart_toStartOf="@+id/password_text_input_layout"
+                app:layout_constraintTop_toBottomOf="@+id/password_text_input_layout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
