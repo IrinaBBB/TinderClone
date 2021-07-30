@@ -1,14 +1,20 @@
 package ru.irinavb.tinderclone.activities
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
+import android.provider.MediaStore.Images.Media.getBitmap
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 import ru.irinavb.tinderclone.R
 import ru.irinavb.tinderclone.databinding.ActivityMainBinding
 import ru.irinavb.tinderclone.fragments.AccountFragment
@@ -16,7 +22,10 @@ import ru.irinavb.tinderclone.fragments.MatchesFragment
 import ru.irinavb.tinderclone.fragments.MessengerFragment
 import ru.irinavb.tinderclone.interfaces.TinderCallback
 import ru.irinavb.tinderclone.util.DATA_USERS
+import java.io.ByteArrayOutputStream
+import java.io.IOException
 
+const val REQUEST_CODE_PHOTO = 1234
 
 class MainActivity : AppCompatActivity(), TinderCallback {
 
@@ -31,6 +40,8 @@ class MainActivity : AppCompatActivity(), TinderCallback {
     private val userId = firebaseAuth.currentUser?.uid
 
     private lateinit var userDatabase: DatabaseReference
+
+    private var resultImageUrl: Uri? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,6 +104,45 @@ class MainActivity : AppCompatActivity(), TinderCallback {
         transaction.commit()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE_PHOTO) {
+            resultImageUrl = data?.data
+            storeImage()
+        }
+    }
+
+    private fun storeImage() {
+        if (resultImageUrl != null && userId != null) {
+            val filePath = FirebaseStorage.getInstance()
+                .reference.child("ProfileImage")
+                .child(userId)
+            var bitmap: Bitmap? = null
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(application.contentResolver,
+                    resultImageUrl)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+
+            val baos = ByteArrayOutputStream()
+            bitmap?.compress(Bitmap.CompressFormat.JPEG, 20, baos)
+            val data = baos.toByteArray()
+
+            val uploadTask = filePath.putBytes(data)
+            uploadTask.addOnFailureListener{ e -> e.printStackTrace() }
+            uploadTask.addOnSuccessListener { _ ->
+                filePath.downloadUrl
+                    .addOnSuccessListener { uri ->
+                        accountFragment?.updateImageUri(uri.toString())
+                    }
+                    .addOnFailureListener { e ->
+                        e.printStackTrace()
+                    }
+            }
+        }
+    }
+
     private fun initDatabase() {
         userDatabase = FirebaseDatabase
             .getInstance("https://tinderclone-bd785-default-rtdb.europe-west1.firebasedatabase.app")
@@ -102,6 +152,12 @@ class MainActivity : AppCompatActivity(), TinderCallback {
     override fun profileComplete() {
         replaceFragment(matchesFragment)
         binding.mainNavView.selectedItemId = R.id.matchesFragment
+    }
+
+    override fun startActivityForPhoto() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, REQUEST_CODE_PHOTO)
     }
 
     companion object {

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -48,6 +49,7 @@ class AccountFragment : Fragment() {
 
         binding.applyButton.setOnClickListener { onApply() }
         binding.signOutButton.setOnClickListener { callback?.onSingOut() }
+        binding.profileImage.setOnClickListener{ callback?.startActivityForPhoto() }
 
     }
 
@@ -77,6 +79,10 @@ class AccountFragment : Fragment() {
                     }
                     if (user?.preferredGender == GENDER_FEMALE) {
                         afb?.interestedInFemaleRadioButton?.isChecked = true
+                    }
+
+                    if(!user?.imageUrl.isNullOrEmpty()) {
+                        populateImage(user?.imageUrl!!)
                     }
                     afb?.progressBar?.visibility = View.GONE
                     afb?.accountScrollView?.visibility = View.VISIBLE
@@ -119,6 +125,19 @@ class AccountFragment : Fragment() {
             userDatabase.child(DATA_GENDER_PREFERENCE).setValue(interestedIn)
 
             callback?.profileComplete()
+        }
+    }
+
+    fun updateImageUri(uri: String) {
+        userDatabase.child(DATA_IMAGE_URL).setValue(uri)
+        populateImage(uri)
+    }
+
+    fun populateImage(uri: String) {
+        afb?.profileImage?.let {
+            Glide.with(this)
+                .load(uri)
+                .into(it)
         }
     }
 
