@@ -7,7 +7,7 @@ interface TinderCallback  {
     fun onSingOut()
     fun onGetUserId(): String
     fun getUserDatabase(): DatabaseReference
-
+    fun profileComplete()
 }
 
 /* FOR GETTING SHA FOR FIREBASE

@@ -99,6 +99,11 @@ class MainActivity : AppCompatActivity(), TinderCallback {
             .reference.child(DATA_USERS)
     }
 
+    override fun profileComplete() {
+        replaceFragment(matchesFragment)
+        binding.mainNavView.selectedItemId = R.id.matchesFragment
+    }
+
     companion object {
         fun newIntent(context: Context?) = Intent(context, MainActivity::class.java)
     }

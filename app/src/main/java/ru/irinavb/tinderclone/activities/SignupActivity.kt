@@ -49,7 +49,7 @@ class SignupActivity : AppCompatActivity() {
 
     private fun onSignup() {
         val email = binding.emailEditText.text.toString()
-        val password = binding.passwordEditText.toString()
+        val password = binding.passwordEditText.text.toString()
 
         if (email.isNotEmpty() && password.isNotEmpty()) {
             firebaseAuth.createUserWithEmailAndPassword(email, password)

@@ -13,7 +13,7 @@
     <string name="wave">wave</string>
     <string name="user_image">user image</string>
     <string name="name">Name</string>
-    <string name="age">age</string>
+    <string name="age">Age</string>
     <string name="semicircle">semicircle</string>
     <string name="male">male</string>
     <string name="female">female</string>
@@ -22,4 +22,5 @@
     <string name="interested_in">Interested in</string>
     <string name="apply">Apply</string>
     <string name="sign_out">Sign out</string>
+    <string name="error_profile_incomplete">Please fill all the fields</string>
 </resources>
