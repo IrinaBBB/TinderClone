@@ -23,4 +23,8 @@
     <string name="apply">Apply</string>
     <string name="sign_out">Sign out</string>
     <string name="error_profile_incomplete">Please fill all the fields</string>
+    <string name="no_available_users_image">no available users image</string>
+    <string name="there_is_no_users_left_to_swipe">There is no users left to swipe</string>
+    <string name="like_button">like button</string>
+    <string name="dislike_button">dislike button</string>
 </resources>

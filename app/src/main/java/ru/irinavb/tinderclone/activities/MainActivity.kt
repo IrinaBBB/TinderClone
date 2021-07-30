@@ -54,6 +54,8 @@ class MainActivity : AppCompatActivity(), TinderCallback {
         if (userId.isNullOrEmpty()) {
             onSingOut()
         }
+
+        matchesFragment.setCallback(this@MainActivity)
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -134,7 +136,7 @@ class MainActivity : AppCompatActivity(), TinderCallback {
             uploadTask.addOnSuccessListener { _ ->
                 filePath.downloadUrl
                     .addOnSuccessListener { uri ->
-                        accountFragment?.updateImageUri(uri.toString())
+                        accountFragment.updateImageUri(uri.toString())
                     }
                     .addOnFailureListener { e ->
                         e.printStackTrace()
